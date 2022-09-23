@@ -1,3 +1,4 @@
 # サイズが100MBを超えるバイナリファイルのためignore
 /.terraform/
 
+/.env
