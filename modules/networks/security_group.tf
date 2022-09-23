@@ -3,10 +3,16 @@
 # Security group
 #--------------------------------------------------------------
 resource "aws_security_group" "security_group" {
-  name = "${var.service_name}-ec2-sg"
-
+  name = "${var.service_name}-sg"
   description = "security group for ${var.service_name}"
   vpc_id = aws_vpc.vpc.id
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+    description = "Allow all connections"
+  }
 }
 
 #--------------------------------------------------------------
@@ -93,5 +99,13 @@ resource "aws_security_group_rule" "inbound_https" {
 
 # 全て許可するアウトバウンドルール
 # resource "aws_security_group_rule" "outbound_allow_all" {
-
+#   type        = "egress"
+#   from_port   = "all"
+#   to_port     = "all"
+#   protocol    = "all"
+#   cidr_blocks = [
+#     "0.0.0.0/0"
+#   ]
+#   description = "Allow all connections"
+#   security_group_id = "${aws_security_group.security_group.id}"
 # }
