@@ -51,3 +51,16 @@ resource "aws_internet_gateway" "internet-gateway" {
     Name = "${var.service_name}-internet-gateway"
   }
 }
+
+# ---------------------------------------------
+# DB Subnet Group
+# ---------------------------------------------
+resource "aws_db_subnet_group" "db_subnet_group" {
+    name        = "${var.service_name}-db-subnet-group"
+    description = "db subnet-group for ${var.service_name}-db-1"
+    subnet_ids  = ["${aws_subnet.subnet-1a.id}", "${aws_subnet.subnet-1c.id}"]
+    tags = {
+        Name = "${var.service_name}-db-1"
+    }
+}
+
