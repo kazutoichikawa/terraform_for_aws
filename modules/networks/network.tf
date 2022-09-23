@@ -14,22 +14,21 @@ resource "aws_vpc" "vpc" {
 # ---------------------------------------------
 resource "aws_subnet" "subnet-1a" {
   vpc_id     = aws_vpc.vpc.id
-  cidr_block = var.subnet_cidr_block
+  cidr_block = var.subnet_1a_cidr_block
   availability_zone = "ap-northeast-1a"
   tags = {
     Name = "${var.service_name}-subnet-1a"
   }
 }
 
-
-# resource "aws_subnet" "subnet-1c" {
-#   vpc_id     = aws_vpc.vpc.id
-#   cidr_block = var.subnet_cidr_block
-#   availability_zone = "ap-northeast-1c"
-#   tags = {
-#     Name = "${var.service_name}-subnet-1c"
-#   }
-# }
+resource "aws_subnet" "subnet-1c" {
+  vpc_id     = aws_vpc.vpc.id
+  cidr_block = var.subnet_cidr_block
+  availability_zone = "ap-northeast-1c"
+  tags = {
+    Name = "${var.service_name}-subnet-1c"
+  }
+}
 
 # ---------------------------------------------
 # Route Table
