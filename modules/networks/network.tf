@@ -23,7 +23,7 @@ resource "aws_subnet" "subnet-1a" {
 
 resource "aws_subnet" "subnet-1c" {
   vpc_id     = aws_vpc.vpc.id
-  cidr_block = var.subnet_cidr_block
+  cidr_block = var.subnet_1c_cidr_block
   availability_zone = "ap-northeast-1c"
   tags = {
     Name = "${var.service_name}-subnet-1c"
@@ -46,7 +46,7 @@ resource "aws_route_table" "route-table" {
 # ---------------------------------------------
 resource "aws_internet_gateway" "internet-gateway" {
   vpc_id = aws_vpc.vpc.id
-
+  depends_on = [aws_vpc.vpc]
   tags = {
     Name = "${var.service_name}-internet-gateway"
   }
