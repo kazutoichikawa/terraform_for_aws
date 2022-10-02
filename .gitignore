@@ -2,7 +2,6 @@
 /.terraform/
 
 # 機密情報が含まれているため一先ずgit管理下から外す
-/.backend.tf
-/.env
+/backend.tf
 /.envrc
 
