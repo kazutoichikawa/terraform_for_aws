@@ -7,10 +7,8 @@ module "networks" {
   service_name = "eikatsu"
 }
 
-module "rds" {
-  source = "./modules/rds"
+module "ecr" {
+  source = "./modules/ecr"
 
   service_name = "eikatsu"
-  db_username = "postgres"
-  db_password = "q3BsrXaE"
 }

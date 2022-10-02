@@ -1,6 +1,6 @@
 # ---------------------------------------------
 # RDS DB Instance
-# ---------------------------------------------
+# # ---------------------------------------------
 # resource "aws_db_instance" "education" {
 #   engine                 = "postgres"
 #   engine_version         = "14.4"
@@ -9,9 +9,9 @@
 #   username               = var.db_username
 #   password               = var.db_password
 #   instance_class         = "db.t3.micro"
+#   storage_type           = "gp2" # ストレージタイプ
 
 #   # ------- ここまでOK -------
-#   # ストレージタイプ
 #   # ストレージ割り当て
 # # ストレージの自動スケーリング
 # # 最大ストレージしきい値
