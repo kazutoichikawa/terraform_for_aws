@@ -63,4 +63,3 @@ resource "aws_db_subnet_group" "db_subnet_group" {
         Name = "${var.service_name}-db-1"
     }
 }
-
